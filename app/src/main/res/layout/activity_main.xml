@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="原地爆炸"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:text="原地爆炸"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="50dp"
+        android:text="原地爆炸"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="50dp"
+        android:text="原地爆炸"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="50dp"
+        android:text="原地爆炸"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="原地爆炸"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/text_1"
+        android:layout_alignBottom="@+id/text_1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/text_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="原地爆炸"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="原地爆炸"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/text_1"
+        android:layout_alignStart="@+id/text_1" />
+
+</RelativeLayout>
