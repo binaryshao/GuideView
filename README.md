@@ -7,7 +7,7 @@
 本开源库主要借鉴学习了这两个库的思路，在此向它们的作者们致谢！
 
 ###**demo演示**
-待更新！
+![](https://github.com/Sbingo/GuideView/raw/master/gif/guide.gif)
 ###**主要功能**
 
  1. 提供【知道了】按钮，可简单地传入文字说明即可，点击【知道了】自动跳转
