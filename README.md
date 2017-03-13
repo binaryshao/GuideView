@@ -34,7 +34,7 @@ allprojects {
  
 
 ```
-compile 'com.github.Sbingo:GuideView:v1.0.0'
+compile 'com.github.Sbingo:GuideView:v1.0.5'
 ```
 
  - 在代码中使用
@@ -50,7 +50,9 @@ TextView tv = new TextView(this);
 //        final GuideView.Builder builder = new GuideView.Builder(this, true);
         //正式环境用这个方法，每个GuideView只会显示一次
         final GuideView.Builder builder = new GuideView.Builder(this);
-        //添加8个引导视图
+	//设置提示文字大小
+	builder.setTextSize(20)；
+        //添加8个引导视图
         builder.addHintView(text1, "测试1", GuideView.Direction.TOP, GuideView.MyShape.ELLIPSE, -50, -200)
                 .addHintView(text2, "测试2", GuideView.Direction.RIGHT_BOTTOM, GuideView.MyShape.RECTANGULAR)
                 .addHintView(text3, "测试3", GuideView.Direction.LEFT_BOTTOM, GuideView.MyShape.CIRCULAR)
