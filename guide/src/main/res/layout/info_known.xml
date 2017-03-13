@@ -9,7 +9,9 @@
         android:id="@+id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/iv_known"

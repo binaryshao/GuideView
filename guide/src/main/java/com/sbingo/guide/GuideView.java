@@ -12,6 +12,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -499,6 +500,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
         private List<GuideView> viewList = new ArrayList<>();
         private int currentIndex = 0;
         private boolean isDebug;
+        private float textSize = 0f;
 
         private Builder() {
         }
@@ -510,6 +512,11 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
         public Builder(Context context, boolean isDebug) {
             mContext = context;
             this.isDebug = isDebug;
+        }
+
+        public Builder setTextSize(float textSize) {
+            this.textSize = textSize;
+            return this;
         }
 
         public Builder addHintView(View targetView, View hintView, Direction dir, MyShape shape) {
@@ -566,6 +573,9 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
             RelativeLayout rv = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.info_known, null);
             TextView tv = (TextView) rv.findViewById(R.id.hint);
             tv.setText(hintText);
+            if (textSize != 0) {
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+            }
             ImageView know = (ImageView) rv.findViewById(R.id.iv_known);
             know.setOnClickListener(new OnClickListener() {
                 @Override
@@ -589,6 +599,9 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
             RelativeLayout rv = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.info_known, null);
             TextView tv = (TextView) rv.findViewById(R.id.hint);
             tv.setText(hintText);
+            if (textSize != 0) {
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+            }
             ImageView know = (ImageView) rv.findViewById(R.id.iv_known);
             know.setOnClickListener(new OnClickListener() {
                 @Override

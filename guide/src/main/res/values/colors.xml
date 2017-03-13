@@ -2,4 +2,5 @@
 <resources>
     <color name="shadow">#524d49</color>
     <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
 </resources>
