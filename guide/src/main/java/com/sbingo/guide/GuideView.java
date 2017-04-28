@@ -101,6 +101,11 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
      * targetView左上角坐标
      */
     private int[] location;
+    /**
+     * 版本号
+     */
+    private String versionName;
+
     private boolean onClickExit;
     private OnClickCallback onclickListener;
     private RelativeLayout guideViewLayout;
@@ -111,8 +116,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
         try {
             PackageManager packageManager = getContext().getPackageManager();
             PackageInfo packInfo = packageManager.getPackageInfo(getContext().getPackageName(), 0);
-            String version = packInfo.versionName;
-            return version;
+            return packInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "v0";
@@ -168,6 +172,10 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
 
     public void setShape(MyShape shape) {
         this.myShape = shape;
+    }
+
+    public void setVersionName(String versionName) {
+        this.versionName = versionName;
     }
 
     public void setCustomGuideView(View customGuideView) {
@@ -234,18 +242,22 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
 
     public boolean show() {
         Log.v(TAG, "show");
-        if (isShowOnce()) {
-            if (!hasShown()) {
-                if (targetView != null) {
-                    showHint();
-                    mContext.getSharedPreferences(TAG, Context.MODE_PRIVATE).edit().putBoolean(generateUniqId(targetView), true).commit();
-                    return true;
+        if (versionName.equals(getVersionName())) {
+            if (isShowOnce()) {
+                if (!hasShown()) {
+                    if (targetView != null) {
+                        showHint();
+                        mContext.getSharedPreferences(TAG, Context.MODE_PRIVATE).edit().putBoolean(generateUniqId(targetView), true).commit();
+                        return true;
+                    }
                 }
+                return false;
+            } else {
+                showHint();
+                return true;
             }
-            return false;
         } else {
-            showHint();
-            return true;
+            return false;
         }
     }
 
@@ -501,16 +513,19 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
         private int currentIndex = 0;
         private boolean isDebug;
         private float textSize = 0f;
+        private String versionName;
 
         private Builder() {
         }
 
-        public Builder(Context context) {
+        public Builder(Context context, String versionName) {
             mContext = context;
+            this.versionName = versionName;
         }
 
-        public Builder(Context context, boolean isDebug) {
+        public Builder(Context context, String versionName, boolean isDebug) {
             mContext = context;
+            this.versionName = versionName;
             this.isDebug = isDebug;
         }
 
@@ -525,6 +540,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
             guideView.setCustomGuideView(hintView);
             guideView.setDirection(dir);
             guideView.setShape(shape);
+            guideView.setVersionName(versionName);
             guideView.setShowOnce(isDebug ? false : true);
             viewList.add(guideView);
             return this;
@@ -536,6 +552,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
             guideView.setCustomGuideView(hintView);
             guideView.setDirection(dir);
             guideView.setShape(shape);
+            guideView.setVersionName(versionName);
             guideView.setOffsetX(xOffset);
             guideView.setOffsetY(yOffset);
             guideView.setShowOnce(isDebug ? false : true);
@@ -549,6 +566,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
             guideView.setCustomGuideView(hintView);
             guideView.setDirection(dir);
             guideView.setShape(shape);
+            guideView.setVersionName(versionName);
             guideView.setClickListener(listener);
             guideView.setShowOnce(isDebug ? false : true);
             viewList.add(guideView);
@@ -561,6 +579,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
             guideView.setCustomGuideView(hintView);
             guideView.setDirection(dir);
             guideView.setShape(shape);
+            guideView.setVersionName(versionName);
             guideView.setOffsetX(xOffset);
             guideView.setOffsetY(yOffset);
             guideView.setClickListener(listener);
@@ -588,6 +607,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
             guideView.setCustomGuideView(rv);
             guideView.setDirection(dir);
             guideView.setShape(shape);
+            guideView.setVersionName(versionName);
             guideView.setOffsetX(xOffset);
             guideView.setOffsetY(yOffset);
             guideView.setShowOnce(isDebug ? false : true);
@@ -614,6 +634,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
             guideView.setCustomGuideView(rv);
             guideView.setDirection(dir);
             guideView.setShape(shape);
+            guideView.setVersionName(versionName);
             guideView.setShowOnce(isDebug ? false : true);
             viewList.add(guideView);
             return this;

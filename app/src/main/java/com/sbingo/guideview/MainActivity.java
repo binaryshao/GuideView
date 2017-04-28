@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         tv.setGravity(Gravity.CENTER);
 
         //测试时用这个方法
-        final GuideView.Builder builder = new GuideView.Builder(this, true);
+        final GuideView.Builder builder = new GuideView.Builder(this, "1.0", true);
         //正式环境用这个方法，每个GuideView只会显示一次
 //        final GuideView.Builder builder = new GuideView.Builder(this);
         builder.addHintView(text1, "测试1", GuideView.Direction.TOP, GuideView.MyShape.ELLIPSE, -50, -200)
