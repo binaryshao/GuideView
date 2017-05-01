@@ -38,7 +38,7 @@ allprojects {
  
 
 ```
-compile 'com.github.Sbingo:GuideView:v1.0.5'
+compile 'com.github.Sbingo:GuideView:1.1.0'
 ```
 
  - 在代码中使用
